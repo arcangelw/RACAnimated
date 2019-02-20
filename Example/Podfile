@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'RACAnimated_Example' do
+  pod 'RACAnimated', :path => '../'
+
+  target 'RACAnimated_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
