@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  从RxSwiftCommunity中同步相关库到ReactiveSwift/ReactiveCocoa，RACAnimated同步RxAnimated
                        DESC
 
   s.homepage         = 'https://github.com/arcangelw/RACAnimated'
@@ -29,9 +29,13 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
-
-  s.source_files = 'RACAnimated/Classes/**/*'
+  s.tvos.deployment_target = '10.0'
   
+  s.default_subspec = 'Core'
+  
+  s.subspec 'Core' do |cs|
+      s.source_files = 'RACAnimated/Classes/**/*'
+  end
   # s.resource_bundles = {
   #   'RACAnimated' => ['RACAnimated/Assets/*.png']
   # }

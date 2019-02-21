@@ -1,5 +1,8 @@
 PODS:
   - RACAnimated (0.1.0):
+    - RACAnimated/Core (= 0.1.0)
+    - ReactiveCocoa (~> 8.0.0)
+  - RACAnimated/Core (0.1.0):
     - ReactiveCocoa (~> 8.0.0)
   - ReactiveCocoa (8.0.2):
     - ReactiveSwift (~> 4.0)
@@ -21,7 +24,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RACAnimated: 2a7f3d14d651f997bc7736697aaca86ab73d502d
+  RACAnimated: 91ffaa813c5aefa910d3b5c395bb6525fc393651
   ReactiveCocoa: fbd26e9ba60e98417ee47433e59465a98ed9da0f
   ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
