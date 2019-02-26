@@ -9,3 +9,8 @@ target 'RACAnimated_Example' do
     
   end
 end
+
+
+target 'RACAnimated-Example-AppleTV' do
+    pod 'RACAnimated', :path => '../'
+end
