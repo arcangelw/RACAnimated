@@ -9,7 +9,6 @@
 // images from: http://avatars.adorable.io/
 
 import UIKit
-import Result
 import ReactiveSwift
 import ReactiveCocoa
 import RACAnimated
@@ -24,24 +23,26 @@ class ViewController: UIViewController {
     
     @IBOutlet var labelAlpha: UILabel!
     @IBOutlet var imageAlpha: UIImageView!
-    
+
     @IBOutlet var labelIsHidden: UILabel!
     @IBOutlet var imageIsHidden: UIImageView!
-    
+
     @IBOutlet var leftConstraint: NSLayoutConstraint!
     @IBOutlet var rightConstraint: NSLayoutConstraint!
     
-    private let timer = SignalProducer.timer(interval: .seconds(1), on: QueueScheduler.main).replayLazily(upTo: 1).scan(1) { count, _ in
+    private lazy var timer = SignalProducer.timer(
+        interval: .seconds(1),
+        on: QueueScheduler()
+    )
+    .take(during: self.reactive.lifetime)
+    .replayLazily(upTo: 1)
+    .scan(1) { count, _ in
         count + 1
-    }
-    
-    private let cancel = MutableProperty<Bool>(false)
+    }.observe(on: UIScheduler())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let timer = self.timer.take(until: cancel.producer.filter({$0}).map({_ in ()}))
-        
+
         // Animate `text` with a crossfade
         labelFade.reactive.animated.fade(duration: 0.33).text
             <~ timer
@@ -51,6 +52,7 @@ class ViewController: UIViewController {
         // Animate `text` with a top flip
         labelFlip.reactive.animated.flip(.top, duration: 0.33).text
             <~ timer
+                .delay(0.33, on: QueueScheduler.main)
                 .map {"Text + flip [\($0)]"}
         
         // Animate `text` with a custom animation `tick`, as driver
@@ -119,9 +121,6 @@ class ViewController: UIViewController {
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 15.0, execute: {
             RacAnimated.areAnimationsEnabled.value = true
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 20.0, execute: {
-            self.cancel.value = true
         })
     }
 }

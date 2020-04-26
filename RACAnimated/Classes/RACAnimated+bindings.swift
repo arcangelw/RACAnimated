@@ -22,9 +22,9 @@ extension Reactive where Base: UIView {
 extension AnimatedSink where Base: UIView {
     public var isHidden: BindingTarget<Bool> {
         return base.reactive.makeBindingTarget { view, hidden in
-            self.type.animate(view: view, binding: {
+            self.type.animate(view: view) {
                 view.isHidden = hidden
-            })
+            }
         }
     }
 }
@@ -32,9 +32,9 @@ extension AnimatedSink where Base: UIView {
 extension AnimatedSink where Base: UIView {
     public var alpha: BindingTarget<CGFloat> {
         return base.reactive.makeBindingTarget { view, alpha in
-            self.type.animate(view: view, binding: {
+            self.type.animate(view: view) {
                 view.alpha = alpha
-            })
+            }
         }
     }
 }
@@ -43,16 +43,16 @@ extension AnimatedSink where Base: UIView {
 extension AnimatedSink where Base: UILabel {
     public var text: BindingTarget<String> {
         return base.reactive.makeBindingTarget { label, text in
-            self.type.animate(view: label, binding: {
-                label.text = text
-            })
+            self.type.animate(view: label) {
+                (label as UILabel).text = text
+            }
         }
     }
     public var attributedText: BindingTarget<NSAttributedString> {
         return base.reactive.makeBindingTarget { label, text in
-            self.type.animate(view: label, binding: {
-                label.attributedText = text
-            })
+            self.type.animate(view: label) {
+                (label as UILabel).attributedText = text
+            }
         }
     }
 }
@@ -61,16 +61,16 @@ extension AnimatedSink where Base: UILabel {
 extension AnimatedSink where Base: UIControl {
     public var isEnabled: BindingTarget<Bool> {
         return base.reactive.makeBindingTarget { control, enabled in
-            self.type.animate(view: control, binding: {
-                control.isEnabled = enabled
-            })
+            self.type.animate(view: control) {
+                (control as UIControl).isEnabled = enabled
+            }
         }
     }
     public var isSelected: BindingTarget<Bool> {
         return base.reactive.makeBindingTarget { control, selected in
-            self.type.animate(view: control, binding: {
-                control.isSelected = selected
-            })
+            self.type.animate(view: control) {
+                (control as UIControl).isSelected = selected
+            }
         }
     }
 }
@@ -79,23 +79,23 @@ extension AnimatedSink where Base: UIControl {
 extension AnimatedSink where Base: UIButton {
     public var title: BindingTarget<String> {
         return base.reactive.makeBindingTarget { button, title in
-            self.type.animate(view: button, binding: {
-                button.setTitle(title, for: button.state)
-            })
+            self.type.animate(view: button) {
+                (button as UIButton).setTitle(title, for: button.state)
+            }
         }
     }
     public var image: BindingTarget<UIImage?> {
         return base.reactive.makeBindingTarget { button, image in
-            self.type.animate(view: button, binding: {
-                button.setImage(image, for: button.state)
-            })
+            self.type.animate(view: button) {
+                (button as UIButton).setImage(image, for: button.state)
+            }
         }
     }
     public var backgroundImage: BindingTarget<UIImage?> {
         return base.reactive.makeBindingTarget { button, image in
-            self.type.animate(view: button, binding: {
-                button.setBackgroundImage(image, for: button.state)
-            })
+            self.type.animate(view: button) {
+                (button as UIButton).setBackgroundImage(image, for: button.state)
+            }
         }
     }
 }
@@ -104,9 +104,9 @@ extension AnimatedSink where Base: UIButton {
 extension AnimatedSink where Base: UIImageView {
     public var image: BindingTarget<UIImage?> {
         return base.reactive.makeBindingTarget { imageView, image in
-            self.type.animate(view: imageView, binding: {
-                imageView.image = image
-            })
+            self.type.animate(view: imageView) {
+                (imageView as UIImageView).image = image
+            }
         }
     }
 }
@@ -126,9 +126,9 @@ extension AnimatedSink where Base: NSLayoutConstraint {
             guard let view = constraint.firstItem as? UIView,
                 let superview = view.superview else { return }
 
-            self.type.animate(view: superview, binding: {
+            self.type.animate(view: superview) {
                 constraint.constant = constant
-            })
+            }
         }
     }
     public var isActive: BindingTarget<Bool> {
@@ -136,9 +136,9 @@ extension AnimatedSink where Base: NSLayoutConstraint {
             guard let view = constraint.firstItem as? UIView,
                 let superview = view.superview else { return }
 
-            self.type.animate(view: superview, binding: {
+            self.type.animate(view: superview) {
                 constraint.isActive = active
-            })
+            }
         }
     }
 }

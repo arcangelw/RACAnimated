@@ -1,34 +1,30 @@
 PODS:
-  - RACAnimated (0.1.0):
-    - RACAnimated/Core (= 0.1.0)
-    - ReactiveCocoa (~> 8.0.0)
-  - RACAnimated/Core (0.1.0):
-    - ReactiveCocoa (~> 8.0.0)
-  - ReactiveCocoa (8.0.2):
-    - ReactiveSwift (~> 4.0)
-  - ReactiveSwift (4.0.0):
-    - Result (~> 4.0)
-  - Result (4.1.0)
+  - RACAnimated (0.2.0):
+    - RACAnimated/Core (= 0.2.0)
+    - ReactiveCocoa (~> 10.0.0)
+  - RACAnimated/Core (0.2.0):
+    - ReactiveCocoa (~> 10.0.0)
+  - ReactiveCocoa (10.0.0):
+    - ReactiveSwift (~> 6.0)
+  - ReactiveSwift (6.2.1)
 
 DEPENDENCIES:
   - RACAnimated (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - ReactiveCocoa
     - ReactiveSwift
-    - Result
 
 EXTERNAL SOURCES:
   RACAnimated:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RACAnimated: 91ffaa813c5aefa910d3b5c395bb6525fc393651
-  ReactiveCocoa: fbd26e9ba60e98417ee47433e59465a98ed9da0f
-  ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
-  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RACAnimated: bdefb8419860dbb48fb8059b8e29181ff7d38fd0
+  ReactiveCocoa: 6d4c37ba236f5d9a7a55b2172cd09f19ba85f574
+  ReactiveSwift: 07ddf579f4eb3ee3bd656214f0461aaf2c0fd639
 
-PODFILE CHECKSUM: b3c2aad2f54b232db60f5d4921a86af480fbfd18
+PODFILE CHECKSUM: 7b1018c247e257e0df64d6af4b5e1c9baa13e7aa
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.1

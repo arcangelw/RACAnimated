@@ -40,9 +40,9 @@ public struct AnimationType<Base> {
     let duration: TimeInterval
     let options: UIView.AnimationOptions
     
-    let setup: ((UIView)->Void)?
-    let animations: ((UIView)->Void)?
-    let completion: ((Bool)->Void)?
+    let setup: ((UIView) -> Void)?
+    let animations: ((UIView) -> Void)?
+    let completion: ((Bool) -> Void)?
     
     /**
      * creates an animation "future"

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RACAnimated'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'Animated bindings for ReactiveCocoa'
 
 # This description is used to generate tags and improve search results.
@@ -42,6 +42,6 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
-  s.dependency 'ReactiveCocoa', '~> 8.0.0'
-  s.swift_version = "4.2"
+  s.dependency 'ReactiveCocoa', '~> 10.0.0'
+  s.swift_version = "5.2"
 end
